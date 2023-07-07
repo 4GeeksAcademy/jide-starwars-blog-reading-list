@@ -23,24 +23,18 @@ export const Demo = () => {
 							<div className="card" style={{width: "18rem"}}>
 								<img src="..." className="card-img-top" alt="..."/>
 								<div className="card-body">
-									<h5 className="card-title">Card title</h5>
-									<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-									<a href="#" className="btn btn-primary">Go somewhere</a>
+									<h5 className="card-title">{item.name}</h5>
+									<p className="card-text">Gender: {item.gender}</p>
+									<p className="card-text">Hair color: {item.hair_color}</p>
+									<p className="card-text">Eye color: {item.eye_color}</p>
+									<Link to={"/single/" + index}>
+										<span className="btn btn-outline-primary">Learn more!</span>
+									</Link>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+  										<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+									</svg>
 								</div>
-								</div>	
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
+							</div>	
 						</li>
 					);
 				})}
