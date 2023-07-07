@@ -23,13 +23,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
+			/* exampleFunction: () => {
 				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			}, */
+			loadSomeData: async () => {
+					
+				const serverUrl = "https://www.swapi.tech/api/people"
+				const unspecificApiData = await loadData(serverUrl)
+				console.log("unspecificApiData", unspecificApiData);
+				const peopleArr = []
+
+				for (const item of unspecificApiData.results){
+					console.log(item.url)
+					let temp = await loadData(item.url)
+					peopleArr.push (temp.result.properties)
+				};
+				console.log("DONE")
+				console.log(peopleArr)
+				setStore({people: peopleArr})
+				
 			},
 			changeColor: (index, color) => {
 				//get the store
@@ -40,10 +52,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const demo = store.demo.map((elm, i) => {
 					if (i === index) elm.background = color;
 					return elm;
-				});
+				}); 
 
 				//reset the global store
-				setStore({ demo: demo });
+				setStore({ demo: demo }); 
 			}
 		}
 	};
