@@ -1,18 +1,25 @@
+const { json } = require("react-router");
+
 const getState = ({ getStore, getActions, setStore }) => {
+
+	const loadData = async (serverUrl) => {
+		try{
+			const response = await fetch(serverUrl)
+			if (!response.ok){
+				console.log(response.ok)
+			}else{
+				const jsonData = await response.json();
+				console.log(jsonData)
+				return jsonData
+			}
+		}catch (error) {
+			console.log(error)
+		};
+	};
+
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			demo: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
