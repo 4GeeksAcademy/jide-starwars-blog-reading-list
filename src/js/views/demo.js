@@ -13,6 +13,10 @@ export const Demo = (props) => {
 		.then((result) => result.json())
 		.then((data) => actions.setPeopleData(data.results));
 	}, []);
+
+	fetch("https://www.swapi.tech/api/people" + person.uid)
+		.then((result) => result.json())
+		.then((data) => actions.setPersonData(data.results));
 	
 	return (
 		<div className="container">
@@ -30,11 +34,13 @@ export const Demo = (props) => {
 									<p className="card-text">Gender: {person.gender}</p>
 									<p className="card-text">Hair color: {person.hair_color}</p>
 									<p className="card-text">Eye color: {person.eye_color}</p>
-									<Link to={"/single/" + person.uid}>
-										<span className="btn btn-outline-primary">Learn more!</span>
-									</Link>
-									&nbsp;
-									<i className="fa fa-heart text-warning" />
+									<div className="d-flex justify-content-between">
+										<Link to={"/single/" + person.uid}>
+											<span className="btn btn-outline-primary">Learn more!</span>
+										</Link>
+										&nbsp;
+										<i className="fa fa-heart text-warning" />
+									</div>
 								</div>
 							</div>	
 						</li>
