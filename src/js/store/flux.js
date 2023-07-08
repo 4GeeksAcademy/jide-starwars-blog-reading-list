@@ -2,15 +2,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 	return {
 		store: {
-			people: []
+			people: [],
+			person: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			
-			setPeopleData: async (results) => {
+			setPeopleData: (results) => {
 				setStore({ people: results });
-				
-				
+			},
+			setPersonData: (uid, properties) => {
+				const store = getStore();
+
+				const newPeopleArray = store.people.map(person => {
+					if (person.uid === uid) {
+						person.properties = properties;
+					}
+					return person;
+				})
+				setStore({ ...store, people: newPeopleArray})
 			},
 			changeColor: (index, color) => {
 				//get the store
