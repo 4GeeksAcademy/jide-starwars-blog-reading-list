@@ -13,10 +13,6 @@ export const Demo = (props) => {
 		.then((result) => result.json())
 		.then((data) => actions.setPeopleData(data.results));
 	}, []);
-
-	fetch("https://www.swapi.tech/api/people" + person.uid)
-		.then((result) => result.json())
-		.then((data) => actions.setPersonData(data.results));
 	
 	return (
 		<div className="container">
