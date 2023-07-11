@@ -5,13 +5,15 @@ import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
 
-export const Planet = (props) => {
+export const Planets = (props) => {
 	const { store, actions } = useContext(Context);
+
+	console.log(store)
 
 	useEffect(() =>{
 		fetch("https://www.swapi.tech/api/planets")
 		.then((result) => result.json())
-		.then((data) => actions.setPlanetData(data.results));
+		.then((data) => actions.setPlanetsData(data.results));
 	}, []);
 	
 	return (
@@ -19,10 +21,10 @@ export const Planet = (props) => {
 			<div className="row">
 				<h3 className="text-danger">Planets</h3>
 			</div>
-			<ul className="list-group list-group-horizontal inline-scroll">
+			<div className="list-group list-group-horizontal inline-scroll">
 				{store.planets.map((planet) => {
 					return (
-						<li key={planet.uid}>
+						<div key={planet.uid}>
 							<div className="card" style={{width: "18rem"}}>
 								<img src="https://barrie360.com/wp-content/uploads/2019/08/Star-Wars-400x200.png" className="card-img-top" alt="..."/>
 								<div className="card-body">
@@ -39,10 +41,10 @@ export const Planet = (props) => {
 									</div>
 								</div>
 							</div>	
-						</li>
+						</div>
 					);
 				})}
-			</ul>
+			</div>
 			<br />
 		</div>
 		

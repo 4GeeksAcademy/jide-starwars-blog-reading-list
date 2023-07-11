@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
 
-export const Demo = (props) => {
+export const Characters = (props) => {
 	const { store, actions } = useContext(Context);
 
 	console.log(store)
@@ -46,6 +46,7 @@ export const Demo = (props) => {
 				})}
 			</div>
 			<br />
+			
 		</div>
 		
 	);

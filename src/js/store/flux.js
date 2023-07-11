@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			people: [],
+			planets: [],
 			person: []
 		},
 		actions: {
@@ -10,6 +11,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			setPeopleData: (results) => {
 				setStore({ people: results });
+			},
+			setPlanetsData: (results) => {
+				setStore({ planets: results });
 			},
 			setPersonData: (uid, properties) => {
 				const store = getStore();
