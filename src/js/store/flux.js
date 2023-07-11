@@ -3,17 +3,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			people: [],
-			person: [],
-			planets: []
+			person: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			
 			setPeopleData: (results) => {
 				setStore({ people: results });
-			},
-			setPlanetData: (results) => {
-				setStore({ planets: results });
 			},
 			setPersonData: (uid, properties) => {
 				const store = getStore();
@@ -24,7 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					return person;
 				})
-				setStore({ ...store, people: newPeopleArray, planets})
+				setStore({ ...store, people: newPeopleArray})
 			},
 			changeColor: (index, color) => {
 				//get the store
