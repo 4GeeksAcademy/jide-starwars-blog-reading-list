@@ -25,7 +25,7 @@ export const Planets = (props) => {
 				{store.planets.map((planet) => {
 					return (
 						<div key={planet.uid}>
-							<div className="card" style={{width: "18rem"}}>
+							<div className="card" style={{width: "18rem", marginRight: "15px"}}>
 								<img src="https://barrie360.com/wp-content/uploads/2019/08/Star-Wars-400x200.png" className="card-img-top" alt="..."/>
 								<div className="card-body">
 									<h5 className="card-title">{planet.name}</h5>
