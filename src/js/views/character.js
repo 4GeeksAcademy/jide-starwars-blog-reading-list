@@ -46,8 +46,6 @@ export const Characters = (props) => {
 				})}
 			</div>
 			<br />
-			
-		</div>
-		
+		</div>	
 	);
 };
