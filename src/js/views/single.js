@@ -9,14 +9,15 @@ export const Single = (props) => {
 
 	const property = store.person.find(person => person.uid === charId);
 
+	console.log(store)
+
 	useEffect(() =>{
 		fetch(`https://www.swapi.tech/api/people/${charId}`)
 		.then((result) => result.json())
 		.then((data) => actions.setPersonData(data.results));
 	}, []);
 
-	const { name, height, mass, eye_color, hair_color, birth_year, gender } =
-        personData;
+	
 
 	return (
 		<div className="container">
