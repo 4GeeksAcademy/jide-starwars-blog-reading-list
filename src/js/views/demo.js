@@ -8,6 +8,8 @@ import "../../styles/demo.css";
 export const Demo = (props) => {
 	const { store, actions } = useContext(Context);
 
+	console.log(store)
+
 	useEffect(() =>{
 		fetch("https://www.swapi.tech/api/people")
 		.then((result) => result.json())
@@ -19,11 +21,11 @@ export const Demo = (props) => {
 			<div className="row">
 				<h3 className="text-danger">Characters</h3>
 			</div>
-			<ul className="list-group list-group-horizontal inline-scroll">
+			<div className="list-group list-group-horizontal inline-scroll">
 				{store.people.map((person) => {
 					return (
-						<li key={person.uid}>
-							<div className="card" style={{width: "18rem"}}>
+						<div key={person.uid}>
+							<div className="card" style={{width: "18rem",  marginRight: "15px"}}>
 								<img src="https://barrie360.com/wp-content/uploads/2019/08/Star-Wars-400x200.png" className="card-img-top" alt="..."/>
 								<div className="card-body">
 									<h5 className="card-title">{person.name}</h5>
@@ -39,10 +41,10 @@ export const Demo = (props) => {
 									</div>
 								</div>
 							</div>	
-						</li>
+						</div>
 					);
 				})}
-			</ul>
+			</div>
 			<br />
 		</div>
 		
