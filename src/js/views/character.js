@@ -16,6 +16,8 @@ export const Characters = (props) => {
 		.then((data) => actions.setPeopleData(data.results));
 	}, []);
 	
+	console.log(store)
+
 	return (
 		<div className="container">
 			<div className="row">

@@ -11,13 +11,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Use getActions to call a function within a fuction
 			
 			setPeopleData: (results) => {
-				setStore({ people: results });
+				const store = getStore();
+				setStore({ ...store, people: results });
 			},
 			setPlanetsData: (results) => {
-				setStore({ planets: results });
+				const store = getStore();
+				setStore({ ...store, planets: results });
 			},
 			setVehiclesData: (results) => {
-				setStore({vehicles: results });
+				const store = getStore();
+				setStore({...store, vehicles: results });
 			},
 			setPersonData: (uid, properties) => {
 				const store = getStore();

@@ -14,7 +14,7 @@ export const Single = (props) => {
 	useEffect(() =>{
 		fetch(`https://www.swapi.tech/api/people/${charId}`)
 		.then((result) => result.json())
-		.then((data) => actions.setPersonData(data.result));
+		.then((data) => actions.setPersonData(charId, data.result.properties));
 	}, []);
 
 	return (
