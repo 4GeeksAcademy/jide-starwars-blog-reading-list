@@ -31,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					return person;
 				})
-				setStore({ ...store, people: newPeopleArray})
+				setStore({ ...store, people: newPeopleArray })
 			},
 			changeColor: (index, color) => {
 				//get the store

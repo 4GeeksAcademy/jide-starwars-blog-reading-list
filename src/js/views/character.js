@@ -15,8 +15,6 @@ export const Characters = (props) => {
 		.then((result) => result.json())
 		.then((data) => actions.setPeopleData(data.results));
 	}, []);
-	
-	console.log(store)
 
 	return (
 		<div className="container">

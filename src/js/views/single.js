@@ -19,49 +19,68 @@ export const Single = (props) => {
 
 	return (
 		<div className="container">
-			<div className="row">
-			<h4 className="">Properties</h4>
-				<div className="">
-					{store.person.map((property) => {
-						return (
-							<div key={property.url}>
-								<div className="w-65 d-flex flex-column justify-content-between">
-									<h1 className="display-4">{property.name}</h1>
-									<p className="lead mt-3 fs-3">
-										Lorem ipsum dolor sit amet consectetur adipisicing
-										elit. Asperiores itaque nesciunt suscipit alias
-										architecto voluptates fuga cupiditate, accusamus
-										exercitationem, expedita non perferendis error autem
-										neque reiciendis, minus iusto? Minima, natus.
-									</p>
-								</div>
-								<ul className="list-group d-flex justify-content-between mt-5">
-									<div className="d-flex flex-row justify-content-between">
-										<li className="list-group-item d-flex flex-column justify-content-between">
-											<div className="bold">Birth Year</div>
-											<div>{property.birth_year}</div>
-										</li>
-										<li className="list-group-item d-flex flex-column justify-content-between">
-											<div className="bold">Height</div>
-											<div>{property.height} cm.</div>
-										</li>
-										<li className="list-group-item d-flex flex-column justify-content-between">
-											<div className="bold">Mass</div>
-											<div>{property.mass} kg.</div>
-										</li>
+			<div className="">
+					{store.people.map((property) => {
+						if (property.uid === charId) {
+							return (
+								
+								<div key={property.uid}>
+									<div className="w-65 d-flex flex-column justify-content-between">
+										<h4 className="">{property.name}</h4>
+										<p>
+											Lorem ipsum dolor sit amet consectetur adipisicing
+											elit. Asperiores itaque nesciunt suscipit alias
+											architecto voluptates fuga cupiditate, accusamus
+											exercitationem, expedita non perferendis error autem
+											neque reiciendis, minus iusto? Minima, natus.
+										</p>
 									</div>
-								</ul>
-							</div>
-						);
+									<hr className="text-danger"></hr>
+									<div className="row d-flex">
+	
+										<div className="col-2 text-danger">
+											<p>Name</p>
+											<p>{property.name}</p>
+										</div>
+	
+										<div className="col-2 text-danger">
+											<p>Birth Year</p>
+											<p>{property.birth_year}</p>
+										</div>
+	
+										<div className="col-2 text-danger">
+											<p>Gender</p>
+											<p>{property.gender}</p>
+										</div>
+											
+										<div className="col-2 text-danger">		
+											<p>Height</p>
+											<p>{property.height}</p>
+										</div>
+										
+										<div className="col-2 text-danger">		
+											<p>Skin color</p>
+											<p>{property.skin_color}</p>
+										</div>
+	
+										<div className="col-2 text-danger">		
+											<p>Eye color</p>
+											<p>{property.eye_color}</p>
+										</div>
+	
+									</div>
+								</div>
+							);
+						}
 					})}
 				</div>
 				<Link to="/">
-					<span className="btn btn-primary btn-lg" href="#" role="button">
+					<button className="btn btn-primary" href="#" role="button">
 						Back home
-					</span>
+					</button>
 				</Link>
 			</div>
-		</div>
+		
 	);
 };
 
