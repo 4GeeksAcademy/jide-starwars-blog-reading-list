@@ -23,7 +23,6 @@ export const Single = (props) => {
 					{store.people.map((property) => {
 						if (property.uid === charId) {
 							return (
-								
 								<div key={property.uid}>
 									<div className="w-65 d-flex flex-column justify-content-between">
 										<h4 className="">{property.name}</h4>
@@ -67,7 +66,6 @@ export const Single = (props) => {
 											<p>Eye color</p>
 											<p>{property.eye_color}</p>
 										</div>
-	
 									</div>
 								</div>
 							);
