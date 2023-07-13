@@ -23,8 +23,11 @@ export const Single = (props) => {
 					{store.people.map((person) => {
 						if (person.uid === charId && person.properties) {
 							return (
-								<div key={person.uid}>
-									<div className="w-65 d-flex flex-column justify-content-between">
+								<div className="row d-flex"key={person.uid}>
+									<div className="col-sm-12 col-md-6">
+										<img src="https://barrie360.com/wp-content/uploads/2019/08/Star-Wars-400x200.png" style={{width:"100%", height:"75%"}}/>
+									</div>
+									<div className="col-sm-12 col-md-6">	
 										<h4 className="">{person.name}</h4>
 										<p>
 											Lorem ipsum dolor sit amet consectetur adipisicing
